@@ -13,14 +13,14 @@ import scala.scalajs.js.annotation.JSImport
 object PageTemplateCSS extends js.Object
 
 @react class PageTemplate extends StatelessComponent {
-  case class Props(children: ReactElement)
+  case class Props(children: Seq[ReactElement])
 
   val css = PageTemplateCSS
 
   def render() = {
     div(className := "page-template")(
       h1("일정관리"),
-      div(className := "content")(props.children)
-      )
+      div(className := "content")(props.children: _*)
+    )
   }
 }
